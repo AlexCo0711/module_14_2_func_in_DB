@@ -45,20 +45,18 @@ cursor.execute("DELETE FROM Users WHERE id = 6")
 
 # Подсчёт общего количество записей БД Users (not_telegram.db).
 cursor.execute("SELECT COUNT(*) FROM Users")
-usr = cursor.fetchone()[0]
-print(usr)
+users_all = cursor.fetchone()[0]
 
 # Подсчёт общего баланса записей БД Users (not_telegram.db).
 cursor.execute("SELECT SUM(balance) FROM Users ")
-balanc = cursor.fetchone()[0]
-print(balanc)
+balance_all = cursor.fetchone()[0]
 
 # Подсчёт среднего баланса записей БД Users (not_telegram.db).
 cursor.execute("SELECT AVG(balance) FROM Users ")
-avg_balanc = cursor.fetchone()[0]
+avg_balance = cursor.fetchone()[0]
 # вывод на консоль среднего баланса всех записей БД Users (not_telegram.db).
-print(avg_balanc)
-print(balanc / usr)
+print(avg_balance)
+print(balance_all / users_all)
 
 # команда на сохранение изменений БД
 connection.commit()
